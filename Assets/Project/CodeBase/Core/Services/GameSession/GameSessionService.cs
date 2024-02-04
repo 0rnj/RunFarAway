@@ -1,4 +1,4 @@
-﻿namespace Project.CodeBase.Core.Services.GameSession
+﻿namespace CodeBase.Core.Services.GameSession
 {
     public sealed class GameSessionService : IGameSessionService
     {

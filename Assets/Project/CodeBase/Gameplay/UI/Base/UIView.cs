@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace Project.CodeBase.Gameplay.UI.Base
+namespace CodeBase.Gameplay.UI.Base
 {
     public abstract class UIView : UIWidget
     {

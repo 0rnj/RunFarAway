@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Project.CodeBase.Core.DI
+namespace CodeBase.Core.DI
 {
     public abstract class ExportsCollectionBase
     {

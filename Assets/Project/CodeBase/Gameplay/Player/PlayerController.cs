@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Project.CodeBase.Core.Factories;
-using Project.CodeBase.Core.Services;
-using Project.CodeBase.Core.Services.Configs;
-using Project.CodeBase.Gameplay.UI;
+using CodeBase.Core.Factories;
+using CodeBase.Core.Services;
+using CodeBase.Gameplay.Services.Configs;
+using CodeBase.Gameplay.UI;
 
-namespace Project.CodeBase.Gameplay.Player
+namespace CodeBase.Gameplay.Player
 {
     public sealed class PlayerController : IInitializable, IPlayerController
     {

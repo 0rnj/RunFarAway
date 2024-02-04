@@ -1,6 +1,6 @@
-﻿using Project.CodeBase.Gameplay.UI;
+﻿using CodeBase.Gameplay.UI;
 
-namespace Project.CodeBase.Gameplay.Player
+namespace CodeBase.Gameplay.Player
 {
     public interface IPlayerController : IController
     {

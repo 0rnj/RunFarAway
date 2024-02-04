@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
-namespace Project.CodeBase.Core.Services.ResourcesLoading
+namespace CodeBase.Core.Services.ResourcesLoading
 {
     public interface IResourcesService
     {

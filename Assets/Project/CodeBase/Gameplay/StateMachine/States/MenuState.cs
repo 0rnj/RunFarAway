@@ -1,9 +1,9 @@
-using Project.CodeBase.Core.Services.GameSession;
-using Project.CodeBase.Core.Services.UI;
-using Project.CodeBase.Core.StateMachine;
-using Project.CodeBase.Gameplay.UI;
+using CodeBase.Core.Services.GameSession;
+using CodeBase.Core.StateMachine;
+using CodeBase.Gameplay.Services.UI;
+using CodeBase.Gameplay.UI;
 
-namespace Project.CodeBase.Gameplay.StateMachine.States
+namespace CodeBase.Gameplay.StateMachine.States
 {
     public sealed class MenuState : StateBase
     {

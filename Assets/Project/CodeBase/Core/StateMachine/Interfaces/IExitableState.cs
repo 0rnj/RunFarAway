@@ -1,4 +1,4 @@
-namespace Project.CodeBase.Core.StateMachine.Interfaces
+namespace CodeBase.Core.StateMachine.Interfaces
 {
     public interface IExitableState
     {

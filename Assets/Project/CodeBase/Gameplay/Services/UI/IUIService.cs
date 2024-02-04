@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using Project.CodeBase.Gameplay.UI.Base;
+using CodeBase.Gameplay.UI.Base;
 using UnityEngine;
 
-namespace Project.CodeBase.Core.Services.UI
+namespace CodeBase.Gameplay.Services.UI
 {
     public interface IUIService
     {

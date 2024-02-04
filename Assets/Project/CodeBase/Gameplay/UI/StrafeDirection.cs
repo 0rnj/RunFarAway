@@ -1,4 +1,4 @@
-﻿namespace Project.CodeBase.Gameplay.UI
+﻿namespace CodeBase.Gameplay.UI
 {
     public enum StrafeDirection
     {

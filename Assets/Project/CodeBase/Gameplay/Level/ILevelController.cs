@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Project.CodeBase.Gameplay.Level
+namespace CodeBase.Gameplay.Level
 {
     public interface ILevelController
     {

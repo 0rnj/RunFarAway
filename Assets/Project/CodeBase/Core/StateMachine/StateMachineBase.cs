@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Project.CodeBase.Core.StateMachine.Interfaces;
+using CodeBase.Core.StateMachine.Interfaces;
 
-namespace Project.CodeBase.Core.StateMachine
+namespace CodeBase.Core.StateMachine
 {
     public abstract class StateMachineBase
     {

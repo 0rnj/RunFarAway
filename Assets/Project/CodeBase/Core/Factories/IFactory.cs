@@ -1,4 +1,4 @@
-namespace Project.CodeBase.Core.Factories
+namespace CodeBase.Core.Factories
 {
     public interface IFactory { }
 }

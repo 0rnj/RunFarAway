@@ -1,6 +1,6 @@
-﻿using Project.CodeBase.Core.Services.Configs;
+﻿using CodeBase.Gameplay.Services.Configs;
 
-namespace Project.CodeBase.Gameplay.StateMachine.States
+namespace CodeBase.Gameplay.StateMachine.States
 {
     public sealed class LoadMenuSceneState : LoadSceneState
     {

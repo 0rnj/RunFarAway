@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Project.CodeBase.Core.Services.ResourcesLoading;
-using Project.CodeBase.Gameplay.UI.Base;
+using CodeBase.Core.Services;
+using CodeBase.Core.Services.ResourcesLoading;
+using CodeBase.Gameplay.UI.Base;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Project.CodeBase.Core.Services.UI
+namespace CodeBase.Gameplay.Services.UI
 {
     public sealed class UIService : IUIService, IInitializable
     {

@@ -9,7 +9,7 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using Object = UnityEngine.Object;
 
-namespace Project.CodeBase.Core.Services.ResourcesLoading
+namespace CodeBase.Core.Services.ResourcesLoading
 {
     public sealed class ResourcesService : IResourcesService
     {

@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using Project.CodeBase.Core.Services.UI;
+using CodeBase.Gameplay.Services.UI;
 using UnityEngine;
 using VContainer;
 
-namespace Project.CodeBase.Gameplay.UI.Base
+namespace CodeBase.Gameplay.UI.Base
 {
     [DisallowMultipleComponent]
     public abstract class UIWidget : MonoBehaviour

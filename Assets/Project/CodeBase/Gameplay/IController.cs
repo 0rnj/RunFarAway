@@ -1,4 +1,4 @@
-﻿namespace Project.CodeBase.Gameplay
+﻿namespace CodeBase.Gameplay
 {
     public interface IController { }
 }

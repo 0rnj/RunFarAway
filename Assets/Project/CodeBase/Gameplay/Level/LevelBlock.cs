@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Project.CodeBase.Core.Factories;
-using Project.CodeBase.Gameplay.Common;
-using Project.CodeBase.Gameplay.StaticData;
+using CodeBase.Core.Factories;
+using CodeBase.Gameplay.Common;
+using CodeBase.Gameplay.StaticData;
 using UnityEngine;
 using VContainer;
 
-namespace Project.CodeBase.Gameplay.Level
+namespace CodeBase.Gameplay.Level
 {
     public sealed class LevelBlock : MonoBehaviour
     {

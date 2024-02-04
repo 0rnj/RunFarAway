@@ -1,10 +1,10 @@
-﻿using Project.CodeBase.Core.StateMachine.Interfaces;
-using Project.CodeBase.Gameplay.StateMachine;
-using Project.CodeBase.Gameplay.StateMachine.States;
+﻿using CodeBase.Core.StateMachine.Interfaces;
+using CodeBase.Gameplay.StateMachine;
+using CodeBase.Gameplay.StateMachine.States;
 using VContainer;
 using VContainer.Unity;
 
-namespace Project.CodeBase.Core.DI
+namespace CodeBase.Gameplay.DI
 {
     public class GameLifetimeScope : LifetimeScope
     {

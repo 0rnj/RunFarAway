@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Project.CodeBase.Core.Services
+namespace CodeBase.Core.Services
 {
     public interface IInitializable
     {

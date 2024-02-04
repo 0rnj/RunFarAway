@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.CodeBase.Gameplay.UI.Base
+namespace CodeBase.Gameplay.UI.Base
 {
     public sealed class UIRoot : MonoBehaviour
     {

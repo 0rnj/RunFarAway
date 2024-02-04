@@ -1,8 +1,8 @@
-using Project.CodeBase.Gameplay.StateMachine;
-using Project.CodeBase.Gameplay.StateMachine.States;
+using CodeBase.Gameplay.StateMachine;
+using CodeBase.Gameplay.StateMachine.States;
 using VContainer.Unity;
 
-namespace Project.CodeBase.Core
+namespace CodeBase.Gameplay
 {
     public sealed class Initializer : IInitializable
     {

@@ -1,6 +1,7 @@
-using Project.CodeBase.Gameplay.StaticData;
+using CodeBase.Core.Services;
+using CodeBase.Gameplay.StaticData;
 
-namespace Project.CodeBase.Core.Services.Configs
+namespace CodeBase.Gameplay.Services.Configs
 {
     public interface IConfigsService : IService
     {

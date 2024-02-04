@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Project.CodeBase.Core.Services;
-using Project.CodeBase.Core.StateMachine;
+using CodeBase.Core.Services;
+using CodeBase.Core.StateMachine;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace Project.CodeBase.Gameplay.StateMachine.States
+namespace CodeBase.Gameplay.StateMachine.States
 {
     public class BootstrapState : StateBase
     {

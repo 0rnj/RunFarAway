@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Project.CodeBase.Core.Factories;
-using Project.CodeBase.Core.Services;
-using Project.CodeBase.Core.Services.Configs;
-using Project.CodeBase.Core.Services.Input;
-using Project.CodeBase.Gameplay.Level;
-using Project.CodeBase.Gameplay.Player;
-using Project.CodeBase.Gameplay.UI;
+using CodeBase.Core.Factories;
+using CodeBase.Gameplay.Level;
+using CodeBase.Gameplay.Player;
+using CodeBase.Gameplay.Services.Configs;
+using CodeBase.Gameplay.Services.Input;
+using CodeBase.Gameplay.UI;
 using UnityEngine;
 using VContainer.Unity;
-using IInitializable = Project.CodeBase.Core.Services.IInitializable;
+using IInitializable = CodeBase.Core.Services.IInitializable;
 
-namespace Project.CodeBase.Gameplay
+namespace CodeBase.Gameplay
 {
-    public sealed class GameController : IGameController, IInitializable, ITickable, IDisposable
+    public sealed class GameController : IGameController, Core.Services.IInitializable, ITickable, IDisposable
     {
         private readonly IConfigsService _configsService;
         private readonly ILevelController _levelController;

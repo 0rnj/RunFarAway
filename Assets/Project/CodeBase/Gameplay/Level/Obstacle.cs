@@ -1,8 +1,8 @@
 ﻿using System;
-using Project.CodeBase.Gameplay.Common;
+using CodeBase.Gameplay.Common;
 using UnityEngine;
 
-namespace Project.CodeBase.Gameplay.Level
+namespace CodeBase.Gameplay.Level
 {
     public class Obstacle : MonoBehaviour
     {

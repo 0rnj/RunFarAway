@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace Project.CodeBase.Core.Services.ResourcesLoading
+namespace CodeBase.Core.Services.ResourcesLoading
 {
     internal class AsyncOperationsContainer
     {

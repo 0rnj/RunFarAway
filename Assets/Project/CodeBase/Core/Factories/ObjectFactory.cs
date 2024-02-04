@@ -1,12 +1,11 @@
 ﻿using System.Threading.Tasks;
-using Project.CodeBase.Core.Services;
-using Project.CodeBase.Core.Services.ResourcesLoading;
+using CodeBase.Core.Services.ResourcesLoading;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VContainer;
 using VContainer.Unity;
 
-namespace Project.CodeBase.Core.Factories
+namespace CodeBase.Core.Factories
 {
     public sealed class ObjectFactory : IObjectFactory
     {

@@ -1,8 +1,8 @@
-﻿using Project.CodeBase.Gameplay.Level;
+﻿using CodeBase.Gameplay.Level;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Project.CodeBase.Gameplay.StaticData
+namespace CodeBase.Gameplay.StaticData
 {
     [CreateAssetMenu(menuName = "StaticData/LevelConfig", fileName = "LevelConfig", order = 0)]
     public sealed class LevelConfig : ScriptableObject

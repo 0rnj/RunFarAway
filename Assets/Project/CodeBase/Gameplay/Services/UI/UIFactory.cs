@@ -1,9 +1,9 @@
-using Project.CodeBase.Gameplay.UI.Base;
+using CodeBase.Gameplay.UI.Base;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Project.CodeBase.Core.Services.UI
+namespace CodeBase.Gameplay.Services.UI
 {
     public sealed class UIFactory : IUIFactory
     {

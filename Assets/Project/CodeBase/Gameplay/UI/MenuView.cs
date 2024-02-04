@@ -1,10 +1,10 @@
 ﻿using System;
+using CodeBase.Gameplay.UI.Base;
 using DG.Tweening;
-using Project.CodeBase.Gameplay.UI.Base;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.CodeBase.Gameplay.UI
+namespace CodeBase.Gameplay.UI
 {
     public sealed class MenuView : UIView<MenuView.Params>
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Project.CodeBase.Gameplay
+namespace CodeBase.Gameplay
 {
     public sealed class PlayerModel
     {

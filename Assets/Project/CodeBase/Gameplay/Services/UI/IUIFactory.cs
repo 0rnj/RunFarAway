@@ -1,8 +1,8 @@
-using Project.CodeBase.Core.Factories;
-using Project.CodeBase.Gameplay.UI.Base;
+using CodeBase.Core.Factories;
+using CodeBase.Gameplay.UI.Base;
 using UnityEngine;
 
-namespace Project.CodeBase.Core.Services.UI
+namespace CodeBase.Gameplay.Services.UI
 {
     public interface IUIFactory : IFactory
     {

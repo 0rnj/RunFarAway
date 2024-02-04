@@ -1,6 +1,6 @@
-﻿using Project.CodeBase.Core.StateMachine;
+﻿using CodeBase.Core.StateMachine;
 
-namespace Project.CodeBase.Gameplay.StateMachine
+namespace CodeBase.Gameplay.StateMachine
 {
     public class GameStateMachine : StateMachineBase { }
 }

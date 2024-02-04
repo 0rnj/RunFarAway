@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Project.CodeBase.Core.Factories
+namespace CodeBase.Core.Factories
 {
     public interface IObjectFactory : IFactory
     {

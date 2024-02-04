@@ -1,9 +1,9 @@
-﻿using DG.Tweening;
-using Project.CodeBase.Gameplay.Player;
+﻿using CodeBase.Gameplay.Player;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Project.CodeBase.Gameplay.StaticData
+namespace CodeBase.Gameplay.StaticData
 {
     [CreateAssetMenu(menuName = "StaticData/PlayerConfig", fileName = "PlayerConfig", order = 0)]
     public sealed class PlayerConfig : ScriptableObject

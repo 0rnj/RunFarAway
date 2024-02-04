@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Project.CodeBase.Core.Factories;
-using Project.CodeBase.Core.Services;
+using CodeBase.Core.DI;
+using CodeBase.Core.Factories;
+using CodeBase.Core.Services;
 
-namespace Project.CodeBase.Core.DI
+namespace CodeBase.Gameplay.DI
 {
     public sealed class GameExportsCollection : ExportsCollectionBase
     {

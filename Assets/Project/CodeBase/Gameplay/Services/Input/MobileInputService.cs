@@ -1,9 +1,9 @@
 ﻿using System;
-using Project.CodeBase.Gameplay.UI;
+using CodeBase.Gameplay.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Project.CodeBase.Core.Services.Input
+namespace CodeBase.Gameplay.Services.Input
 {
     public sealed class MobileInputService : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointerClickHandler, IInputService
     {

@@ -1,9 +1,8 @@
+using CodeBase.Gameplay.Services.Configs;
 using DG.Tweening;
-using Project.CodeBase.Core.Services.Configs;
-using Project.CodeBase.Gameplay.UI;
 using UnityEngine;
 
-namespace Project.CodeBase.Gameplay.Player
+namespace CodeBase.Gameplay.Player
 {
     public sealed class PlayerMovementController
     {

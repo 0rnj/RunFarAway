@@ -1,8 +1,8 @@
 ﻿using System;
-using Project.CodeBase.Gameplay.UI;
+using CodeBase.Gameplay.UI;
 using UnityEngine;
 
-namespace Project.CodeBase.Core.Services.Input
+namespace CodeBase.Gameplay.Services.Input
 {
     public sealed class StandaloneInputService : MonoBehaviour, IInputService
     {

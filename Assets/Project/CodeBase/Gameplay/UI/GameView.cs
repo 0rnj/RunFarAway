@@ -1,6 +1,6 @@
-using Project.CodeBase.Gameplay.UI.Base;
+using CodeBase.Gameplay.UI.Base;
 
-namespace Project.CodeBase.Gameplay.UI
+namespace CodeBase.Gameplay.UI
 {
     public sealed class GameView : UIView
     {

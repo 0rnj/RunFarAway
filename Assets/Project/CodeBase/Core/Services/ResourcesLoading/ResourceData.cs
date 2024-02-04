@@ -1,4 +1,4 @@
-﻿namespace Project.CodeBase.Core.Services.ResourcesLoading
+﻿namespace CodeBase.Core.Services.ResourcesLoading
 {
     public struct ResourceData
     {

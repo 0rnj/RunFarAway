@@ -1,7 +1,7 @@
 ﻿using System;
-using Project.CodeBase.Gameplay.UI;
+using CodeBase.Gameplay.UI;
 
-namespace Project.CodeBase.Core.Services.Input
+namespace CodeBase.Gameplay.Services.Input
 {
     public interface IInputService
     {

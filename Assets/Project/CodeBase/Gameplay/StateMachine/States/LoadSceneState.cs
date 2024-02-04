@@ -1,8 +1,8 @@
-﻿using Project.CodeBase.Core.Services.Configs;
-using Project.CodeBase.Core.StateMachine;
+﻿using CodeBase.Core.StateMachine;
+using CodeBase.Gameplay.Services.Configs;
 using UnityEngine.SceneManagement;
 
-namespace Project.CodeBase.Gameplay.StateMachine.States
+namespace CodeBase.Gameplay.StateMachine.States
 {
     public abstract class LoadSceneState : StateBase
     {

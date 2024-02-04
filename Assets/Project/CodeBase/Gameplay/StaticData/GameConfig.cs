@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.CodeBase.Gameplay.StaticData
+namespace CodeBase.Gameplay.StaticData
 {
     [CreateAssetMenu(menuName = "StaticData/GameConfig", fileName = "GameConfig", order = 0)]
     public sealed class GameConfig : ScriptableObject

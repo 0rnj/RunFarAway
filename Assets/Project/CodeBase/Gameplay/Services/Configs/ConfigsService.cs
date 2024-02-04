@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
-using Project.CodeBase.Core.Services.ResourcesLoading;
-using Project.CodeBase.Gameplay.StaticData;
+using CodeBase.Core.Services;
+using CodeBase.Core.Services.ResourcesLoading;
+using CodeBase.Gameplay.StaticData;
 using UnityEngine;
 
-namespace Project.CodeBase.Core.Services.Configs
+namespace CodeBase.Gameplay.Services.Configs
 {
     public sealed class ConfigsService : IConfigsService, IInitializable
     {

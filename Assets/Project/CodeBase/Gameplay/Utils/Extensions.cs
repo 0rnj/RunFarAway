@@ -1,4 +1,4 @@
-﻿namespace Project.CodeBase.Gameplay.Utils
+﻿namespace CodeBase.Gameplay.Utils
 {
     public class Extensions
     {

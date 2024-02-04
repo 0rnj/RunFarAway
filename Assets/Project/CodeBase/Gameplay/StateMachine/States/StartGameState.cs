@@ -1,6 +1,6 @@
-﻿using Project.CodeBase.Core.StateMachine;
+﻿using CodeBase.Core.StateMachine;
 
-namespace Project.CodeBase.Gameplay.StateMachine.States
+namespace CodeBase.Gameplay.StateMachine.States
 {
     public sealed class StartGameState : StateBase
     {

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Project.CodeBase.Core.Factories;
-using Project.CodeBase.Core.Services.Configs;
+using CodeBase.Core.Factories;
+using CodeBase.Gameplay.Services.Configs;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Project.CodeBase.Gameplay.Level
+namespace CodeBase.Gameplay.Level
 {
     public sealed class LevelController : ILevelController, IDisposable
     {
