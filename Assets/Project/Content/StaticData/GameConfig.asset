@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7da99d421c142e38c724ea21897ae1a, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  <MenuSceneName>k__BackingField: 
-  <GameSceneName>k__BackingField: 
+  <MenuSceneName>k__BackingField: MainMenu
+  <GameSceneName>k__BackingField: Game
+  <StandaloneInputProviderRef>k__BackingField:
+    m_AssetGUID: 292f82ba17958194ab186274aa86ca1b
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  <CameraControllerRef>k__BackingField:
+    m_AssetGUID: f3f5132ae5bc3174b9874bf6c7dc1eea
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

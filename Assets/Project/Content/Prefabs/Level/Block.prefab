@@ -80,7 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea6676c6e174ae6b374366f0fbc633e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scaledContent: {fileID: 0}
+  _scaledContent: {fileID: 2425876926300983551}
+  _collisionEventsProvider: {fileID: 5322744787922950702}
 --- !u!1 &7195959041644527714
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2093919046604062172}
   - component: {fileID: 657924702245356128}
+  - component: {fileID: 5322744787922950702}
   m_Layer: 0
   m_Name: EnterTrigger
   m_TagString: Untagged
@@ -417,3 +419,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5322744787922950702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7818391212148491327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4a2591bad74615b6d8d8e6b045ecb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

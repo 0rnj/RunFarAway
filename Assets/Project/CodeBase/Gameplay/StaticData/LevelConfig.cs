@@ -13,8 +13,8 @@ namespace CodeBase.Gameplay.StaticData
         [field: SerializeField] public float ObstaclePlacingStepZ { get; private set; }
         [field: SerializeField] public float SpaceForManeuverZ { get; private set; }
         [field: SerializeField] public Vector2Int BlockObstacleSizeZ { get; private set; }
-        [field: SerializeField] public AssetReferenceT<Obstacle> ObstacleRef { get; private set; }
-        [field: SerializeField] public AssetReferenceT<LevelBlock> BlockRef { get; private set; }
+        [field: SerializeField] public AssetReference ObstacleRef { get; private set; }
+        [field: SerializeField] public AssetReference BlockRef { get; private set; }
         
     }
 }

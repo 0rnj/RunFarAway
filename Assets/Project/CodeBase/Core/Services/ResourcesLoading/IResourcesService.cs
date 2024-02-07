@@ -5,7 +5,7 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 
 namespace CodeBase.Core.Services.ResourcesLoading
 {
-    public interface IResourcesService
+    public interface IResourcesService : IService
     {
         Task<T> LoadAsync<T>(object owner, string primaryKey);
         Task<T> LoadAsync<T>(object owner, AssetReference reference);

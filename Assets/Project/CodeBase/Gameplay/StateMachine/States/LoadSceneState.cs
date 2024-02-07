@@ -7,7 +7,7 @@ namespace CodeBase.Gameplay.StateMachine.States
     public abstract class LoadSceneState : StateBase
     {
         protected readonly IConfigsService ConfigsService;
-        
+
         protected abstract string SceneName { get; }
 
         protected LoadSceneState(IConfigsService configsService)
@@ -26,7 +26,7 @@ namespace CodeBase.Gameplay.StateMachine.States
         public override void Exit() { }
 
         protected abstract void Proceed();
-        
+
         private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             SceneManager.sceneLoaded -= HandleSceneLoaded;

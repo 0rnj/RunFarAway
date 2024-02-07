@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace CodeBase.Gameplay.Services.UI
 {
-    public sealed class UIService : IUIService, IInitializable
+    public sealed class UIService : IUIService, IInitializableAsync
     {
         private readonly IResourcesService _resourcesService;
         private readonly IUIFactory _uiFactory;
@@ -18,6 +18,8 @@ namespace CodeBase.Gameplay.Services.UI
         private readonly Dictionary<Type, UIWidget> _widgetPrefabs = new();
 
         private UIRoot _uiRoot;
+
+        int IInitializableAsync.InitOrder => 1;
 
         public UIService(IResourcesService resourcesService, IUIFactory uiFactory)
         {

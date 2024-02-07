@@ -11,7 +11,7 @@ using Object = UnityEngine.Object;
 
 namespace CodeBase.Core.Services.ResourcesLoading
 {
-    public sealed class ResourcesService : IResourcesService
+    public sealed class ResourcesService : IResourcesService, IInitializableAsync
     {
         private const string ADDRESSABLES_LOCAL_LABEL = "LocalAsset";
 
@@ -20,7 +20,9 @@ namespace CodeBase.Core.Services.ResourcesLoading
         private readonly Dictionary<object, string> _assetKeys = new();
         private readonly Dictionary<GameObject, string> _instanceKeys = new();
 
-        public async Task<bool> Initialize()
+        int IInitializableAsync.InitOrder => 0;
+
+        async Task<bool> IInitializableAsync.Initialize()
         {
             await Addressables.InitializeAsync().Task;
 
@@ -119,7 +121,7 @@ namespace CodeBase.Core.Services.ResourcesLoading
             try
             {
                 var component = result.GetComponent<T>();
-                return component ?? result as T;
+                return component != null ? component : result as T;
             }
             catch (Exception)
             {

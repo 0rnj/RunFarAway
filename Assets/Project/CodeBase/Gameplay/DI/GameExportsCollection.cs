@@ -13,15 +13,20 @@ namespace CodeBase.Gameplay.DI
         protected override Type[] ExportedTypes => new[]
         {
             typeof(IService),
-            typeof(IFactory)
+            typeof(IFactory),
+            typeof(IController)
         };
-        
+
         public override IReadOnlyList<Type> GetExportedTypes()
         {
-            var types = Assembly.GetExecutingAssembly().ExportedTypes
+            var types = Assembly.GetExecutingAssembly()
+                .ExportedTypes
                 .Where(CanExportType)
                 .ToList();
+
             types.Add(typeof(Initializer));
+
+
 
             return types;
         }

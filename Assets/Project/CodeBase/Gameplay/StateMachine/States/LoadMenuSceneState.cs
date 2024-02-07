@@ -10,12 +10,7 @@ namespace CodeBase.Gameplay.StateMachine.States
 
         protected override void Proceed()
         {
-            
-        }
-
-        public override void Exit()
-        {
-            
+            StateMachine.Enter<MenuState>();
         }
     }
 }

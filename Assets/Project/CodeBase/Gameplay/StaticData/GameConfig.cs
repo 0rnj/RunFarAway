@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace CodeBase.Gameplay.StaticData
 {
@@ -7,5 +8,7 @@ namespace CodeBase.Gameplay.StaticData
     {
         [field: SerializeField] public string MenuSceneName { get; private set; }
         [field: SerializeField] public string GameSceneName { get; private set; }
+        [field: SerializeField] public AssetReference StandaloneInputProviderRef { get; private set; }
+        [field: SerializeField] public AssetReference CameraControllerRef { get; private set; }
     }
 }

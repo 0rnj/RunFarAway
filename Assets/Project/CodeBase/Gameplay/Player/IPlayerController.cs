@@ -2,7 +2,7 @@
 
 namespace CodeBase.Gameplay.Player
 {
-    public interface IPlayerController : IController
+    public interface IPlayerController
     {
         bool IsAlive { get; }
         

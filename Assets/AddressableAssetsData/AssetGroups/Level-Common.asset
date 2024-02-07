@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Level-Common
+  m_EditorClassIdentifier: 
+  m_GroupName: Level-Common
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 05bd524287b47dd4182edc355ba14e0c
+  m_SerializeEntries:
+  - m_GUID: 16700be33dd6a5043b1d21c5a47f130d
+    m_Address: Block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LocalAsset
+  - m_GUID: e20bbd8fb08f9b94e99e2173bfb1694d
+    m_Address: Obstacle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LocalAsset
+  - m_GUID: 2416fb9ade1e9ee448535dd00b5188bb
+    m_Address: PlayerVisuals
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LocalAsset
+  - m_GUID: f3f5132ae5bc3174b9874bf6c7dc1eea
+    m_Address: CameraController
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LocalAsset
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1961bbffd0203bd4fbc872204ddbe89c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f4a2a768c90c1b743ae7b9432e249a43, type: 2}
+    - {fileID: 11400000, guid: af9f32042cd9d1e4cbc065176433180e, type: 2}

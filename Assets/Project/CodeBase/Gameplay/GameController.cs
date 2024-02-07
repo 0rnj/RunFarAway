@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CodeBase.Core.Factories;
+using CodeBase.Core.Services;
 using CodeBase.Gameplay.Level;
 using CodeBase.Gameplay.Player;
 using CodeBase.Gameplay.Services.Configs;
@@ -8,11 +9,10 @@ using CodeBase.Gameplay.Services.Input;
 using CodeBase.Gameplay.UI;
 using UnityEngine;
 using VContainer.Unity;
-using IInitializable = CodeBase.Core.Services.IInitializable;
 
 namespace CodeBase.Gameplay
 {
-    public sealed class GameController : IGameController, Core.Services.IInitializable, ITickable, IDisposable
+    public sealed class GameController : IGameController, IInitializableAsync, ITickable, IDisposable
     {
         private readonly IConfigsService _configsService;
         private readonly ILevelController _levelController;
@@ -24,6 +24,8 @@ namespace CodeBase.Gameplay
         private PlayerController _playerController;
 
         public event Action OnPlayerDied;
+
+        int IInitializableAsync.InitOrder => 3;
 
         public GameController(
             IConfigsService configsService,
@@ -37,22 +39,13 @@ namespace CodeBase.Gameplay
             _inputService = inputService;
         }
 
-        async Task<bool> IInitializable.Initialize()
+        Task<bool> IInitializableAsync.Initialize()
         {
-            var visualsRef = _configsService.PlayerConfig.PlayerVisualsRef;
-            
-            var playerVisuals = await _objectFactory.CreateComponentGameObject(this, visualsRef);
-
-            if (playerVisuals == null)
-            {
-                return false;
-            }
-
             _levelController.OnObstacleHit += HandleObstacleHit;
             _inputService.OnStrafe += HandleStrafeRequested;
             _inputService.OnJump += HandleJumpRequested;
 
-            return true;
+            return Task.FromResult(true);
         }
 
         void IDisposable.Dispose()
@@ -70,6 +63,10 @@ namespace CodeBase.Gameplay
             {
                 await _levelController.CreateEmptyBlock(_currentBlockIndex++);
             }
+
+            _playerController = new PlayerController(_configsService, _objectFactory);
+            
+            await _playerController.Initialize();
 
             _gameActive = true;
         }

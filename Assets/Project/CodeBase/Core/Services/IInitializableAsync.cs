@@ -2,8 +2,10 @@
 
 namespace CodeBase.Core.Services
 {
-    public interface IInitializable
+    public interface IInitializableAsync
     {
+        int InitOrder { get; }
+        
         Task<bool> Initialize();
     }
 }

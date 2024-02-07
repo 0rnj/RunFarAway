@@ -42,11 +42,11 @@ namespace CodeBase.Gameplay.Level
 
             for (var x = 0; x < blockSize.x; x++)
             {
-                for (var y = 0; y < blockSize.y; y++)
+                for (var z = 0; z < blockSize.y; z++)
                 {
                     if (x != corridorIndexX)
                     {
-                        await AddObstacle(block, x, y);
+                        await AddObstacle(block, x, z);
                     }
                 }
             }
@@ -56,20 +56,20 @@ namespace CodeBase.Gameplay.Level
         {
             var blockSize = _configsService.LevelConfig.BlockSize;
             var blockRef = _configsService.LevelConfig.BlockRef;
-            var block = await _objectFactory.CreateComponentGameObject(this, blockRef);
+            var block = await _objectFactory.Create<LevelBlock>(this, blockRef);
             
             block.Initialize(_configsService.LevelConfig);
-            block.transform.localPosition = new Vector2(0f, blockSize.y * blockIndex);
+            block.transform.localPosition = new Vector3(0f, 0f, blockSize.y * blockIndex);
             
             return block;
         }
 
-        private async Task AddObstacle(LevelBlock block, int x, int y)
+        private async Task AddObstacle(LevelBlock block, int x, int z)
         {
             var obstacleRef = _configsService.LevelConfig.ObstacleRef;
-            var obstacle = await _objectFactory.CreateComponentGameObject(this, obstacleRef);
+            var obstacle = await _objectFactory.Create<Obstacle>(this, obstacleRef);
             
-            block.AddObstacle(obstacle, x, y);
+            block.AddObstacle(obstacle, x, z);
 
             obstacle.OnCollide += HandleObstacleCollided;
         }

@@ -15,30 +15,23 @@ namespace CodeBase.Gameplay.Level
         [SerializeField] private CollisionEventsProvider _collisionEventsProvider;
 
         private LevelConfig _config;
-        private IObjectFactory _objectFactory;
-
-        [Inject]
-        private void Construct(IObjectFactory objectFactory, LevelConfig levelConfig)
-        {
-            _objectFactory = objectFactory;
-            _config = levelConfig;
-        }
 
         public void Initialize(LevelConfig config)
         {
             _config = config;
+            _scaledContent.localScale = Vector3.one + Vector3.forward * config.BlockSize.y;
         }
         
         // TODO: fill & release
-        public void AddObstacle(Obstacle obstacle, int x, int y)
+        public void AddObstacle(Obstacle obstacle, int x, int z)
         {
             var sizeX = _config.BlockSize.x;
             var middleIndexX = sizeX / 2;
             var offsetX = _config.ObstacleOffsetX;
             var resultOffsetX = x - middleIndexX * offsetX;
-            var resultOffsetY = y * _config.ObstaclePlacingStepZ;
+            var resultOffsetZ = z * _config.ObstaclePlacingStepZ;
 
-            obstacle.transform.localPosition = new Vector2(resultOffsetX, resultOffsetY);
+            obstacle.transform.localPosition = new Vector3(resultOffsetX, 0f, resultOffsetZ);
             
             _obstacles.Add(obstacle);
         }

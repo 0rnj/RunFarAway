@@ -1,10 +1,11 @@
 using System.Threading.Tasks;
+using CodeBase.Core.Services;
 using CodeBase.Gameplay.UI.Base;
 using UnityEngine;
 
 namespace CodeBase.Gameplay.Services.UI
 {
-    public interface IUIService
+    public interface IUIService : IService
     {
         T GetView<T>() where T : UIView;
 

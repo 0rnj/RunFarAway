@@ -6,9 +6,7 @@ namespace CodeBase.Core.Factories
 {
     public interface IObjectFactory : IFactory
     {
-        Task<GameObject> CreateGameObject(object owner, AssetReferenceT<GameObject> assetReference);
-
-        Task<T> CreateComponentGameObject<T>(object owner, AssetReferenceT<T> assetReference)
+        Task<T> Create<T>(object owner, AssetReference assetReference)
             where T : Component;
     }
 }

@@ -13,7 +13,8 @@ namespace CodeBase.Gameplay.StaticData
         [field: SerializeField] public float MoveSpeedGain { get; private set; }
         [field: SerializeField] public float MoveSpeedGainInterval { get; private set; }
         [field: SerializeField] public float StrafeDuration { get; private set; }
+        [field: SerializeField] public float SpeedFactorWhileStrafing { get; private set; }
         [field: SerializeField] public Ease StrafeEase { get; private set; }
-        [field: SerializeField] public AssetReferenceT<PlayerVisuals> PlayerVisualsRef { get; private set; }
+        [field: SerializeField] public AssetReference PlayerVisualsRef { get; private set; }
     }
 }

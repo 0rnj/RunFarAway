@@ -10,9 +10,9 @@ namespace CodeBase.Gameplay.StateMachine.States
 {
     public class BootstrapState : StateBase
     {
-        private readonly IEnumerable<IInitializable> _services;
+        private readonly IEnumerable<IInitializableAsync> _services;
 
-        public BootstrapState(IEnumerable<IInitializable> services)
+        public BootstrapState(IEnumerable<IInitializableAsync> services)
         {
             _services = services;
         }
@@ -30,19 +30,17 @@ namespace CodeBase.Gameplay.StateMachine.States
 
         private async Task<bool> InitializeServices()
         {
-            var orderedServiceGroups = _services;
-            // var orderedServiceGroups = _services
-            //     .GroupBy(service => service.InitOrder)
-            //     .OrderBy(services => services.Key);
+            var orderedServiceGroups = _services
+                .GroupBy(service => service.InitOrder)
+                .OrderBy(services => services.Key);
 
             var tasks = ListPool<Task<bool>>.Get();
 
             foreach (var serviceGroup in orderedServiceGroups)
             {
-                // foreach (var service in serviceGroup)
+                foreach (var service in serviceGroup)
                 {
-                    // tasks.Add(service.Initialize());
-                    tasks.Add(serviceGroup.Initialize());
+                    tasks.Add(service.Initialize());
                 }
 
                 var initResults = await Task.WhenAll(tasks);

@@ -3,9 +3,10 @@ using System.Threading.Tasks;
 
 namespace CodeBase.Gameplay
 {
-    public interface IGameController
+    public interface IGameController : IController
     {
-        Task StartGame();
         event Action OnPlayerDied;
+        
+        Task StartGame();
     }
 }

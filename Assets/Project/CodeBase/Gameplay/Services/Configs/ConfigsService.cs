@@ -6,12 +6,14 @@ using UnityEngine;
 
 namespace CodeBase.Gameplay.Services.Configs
 {
-    public sealed class ConfigsService : IConfigsService, IInitializable
+    public sealed class ConfigsService : IConfigsService, IInitializableAsync
     {
         private readonly IResourcesService _resourcesService;
         public GameConfig GameConfig { get; private set; }
         public PlayerConfig PlayerConfig { get; private set; }
         public LevelConfig LevelConfig { get; private set; }
+
+        public int InitOrder => 1;
 
         public ConfigsService(IResourcesService resourcesService)
         {
@@ -29,7 +31,7 @@ namespace CodeBase.Gameplay.Services.Configs
 
         private async Task<T> TryLoadConfig<T>() where T : ScriptableObject
         {
-            var config = await _resourcesService.LoadAsync<T>(this, nameof(T));
+            var config = await _resourcesService.LoadAsync<T>(this, typeof(T).Name);
 
             if (config == null)
             {

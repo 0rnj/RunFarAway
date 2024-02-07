@@ -19,12 +19,12 @@ MonoBehaviour:
   <SpaceForManeuverZ>k__BackingField: 4
   <BlockObstacleSizeZ>k__BackingField: {x: 1, y: 3}
   <ObstacleRef>k__BackingField:
-    m_AssetGUID: 
+    m_AssetGUID: e20bbd8fb08f9b94e99e2173bfb1694d
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   <BlockRef>k__BackingField:
-    m_AssetGUID: 
+    m_AssetGUID: 16700be33dd6a5043b1d21c5a47f130d
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

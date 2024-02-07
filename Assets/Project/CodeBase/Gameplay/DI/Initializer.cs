@@ -2,7 +2,7 @@ using CodeBase.Gameplay.StateMachine;
 using CodeBase.Gameplay.StateMachine.States;
 using VContainer.Unity;
 
-namespace CodeBase.Gameplay
+namespace CodeBase.Gameplay.DI
 {
     public sealed class Initializer : IInitializable
     {

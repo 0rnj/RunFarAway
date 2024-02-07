@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CodeBase.Core.StateMachine.Interfaces;
+using UnityEngine;
 
 namespace CodeBase.Core.StateMachine
 {
@@ -18,6 +19,10 @@ namespace CodeBase.Core.StateMachine
         
         public void Enter<TState>() where TState : class, IState
         {
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+            Debug.Log($"[{GetType().Name}]: Entering {typeof(TState).Name}");
+#endif
+            
             var state = ChangeState<TState>();
             state.Enter();
         }

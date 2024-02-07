@@ -18,18 +18,13 @@ namespace CodeBase.Core.Factories
             _objectResolver = objectResolver;
         }
 
-        public async Task<GameObject> CreateGameObject(object owner, AssetReferenceT<GameObject> assetReference)
-        {
-            var instance = await _resourcesService.InstantiateAsync<GameObject>(owner, assetReference);
-            _objectResolver.InjectGameObject(instance.gameObject);
-            return instance;
-        }
-
-        public async Task<T> CreateComponentGameObject<T>(object owner, AssetReferenceT<T> assetReference)
+        public async Task<T> Create<T>(object owner, AssetReference assetReference)
             where T : Component
         {
             var instance = await _resourcesService.InstantiateAsync<T>(owner, assetReference);
+
             _objectResolver.InjectGameObject(instance.gameObject);
+
             return instance;
         }
     }

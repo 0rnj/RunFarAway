@@ -14,13 +14,14 @@ namespace CodeBase.Gameplay.Player
         private float _startStrafePositionX;
         private float _endStrafePositionX;
         private float _endStrafeTime;
-        
+
         public bool IsStrafing { get; private set; }
 
         public PlayerMovementController(IConfigsService configsService, PlayerVisuals playerVisuals)
         {
             _configsService = configsService;
             _playerVisuals = playerVisuals;
+            _timePassed = Time.time;
         }
 
         public void Move(float deltaTime)
@@ -28,18 +29,24 @@ namespace CodeBase.Gameplay.Player
             var config = _configsService.PlayerConfig;
             var startingMoveSpeed = config.StartingMoveSpeed;
             var addedSpeed = (int)(_timePassed / config.MoveSpeedGainInterval) * config.MoveSpeedGain;
-            var moveSpeed = startingMoveSpeed + addedSpeed;
-            var direction = GetDirection();
+            var speedFactor = IsStrafing ? config.SpeedFactorWhileStrafing : 1f;
+            var moveSpeed = (startingMoveSpeed + addedSpeed) * speedFactor;
 
-            _playerVisuals.transform.position += direction * moveSpeed * deltaTime;
+            var visualsTransform = _playerVisuals.transform;
+            var pos = visualsTransform.position;
+            var x = GetPositionX();
+            var y = pos.y;
+            var z = pos.z + moveSpeed * deltaTime;
+            
+            visualsTransform.position = new Vector3(x, y, z);
 
             _timePassed += deltaTime;
-        }
 
-        // public bool CanStrafe(StrafeDirection direction)
-        // {
-        //     return !IsStrafing && _configsService.LevelConfig.BlockSize.x
-        // }
+            if (IsStrafing && _timePassed >= _endStrafeTime)
+            {
+                IsStrafing = false;
+            }
+        }
 
         public void Strafe(float targetPositionX)
         {
@@ -47,7 +54,7 @@ namespace CodeBase.Gameplay.Player
             {
                 return;
             }
-            
+
             IsStrafing = true;
             _startStrafePositionX = _playerVisuals.transform.position.x;
             _endStrafePositionX = targetPositionX;
@@ -55,22 +62,16 @@ namespace CodeBase.Gameplay.Player
             _endStrafeTime = _startStrafeTime + _configsService.PlayerConfig.StrafeDuration;
         }
 
-        private Vector3 GetDirection()
+        private float GetPositionX()
         {
-            if (!IsStrafing)
-            {
-                return Vector3.forward;
-            }
-
             var strafeTimeNormalized = Mathf.InverseLerp(_startStrafeTime, _endStrafeTime, _timePassed);
             var positionX = DOVirtual.EasedValue(
                 _startStrafePositionX,
                 _endStrafePositionX,
                 strafeTimeNormalized,
                 _configsService.PlayerConfig.StrafeEase);
-            var direction = (Vector3.forward + Vector3.right * positionX).normalized;
-
-            return direction;
+            
+            return positionX;
         }
     }
 }

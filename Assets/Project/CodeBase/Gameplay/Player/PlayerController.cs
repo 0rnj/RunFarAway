@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CodeBase.Core.Factories;
-using CodeBase.Core.Services;
 using CodeBase.Gameplay.Services.Configs;
 using CodeBase.Gameplay.UI;
 
 namespace CodeBase.Gameplay.Player
 {
-    public sealed class PlayerController : IInitializable, IPlayerController
+    public sealed class PlayerController : IPlayerController
     {
         private readonly IConfigsService _configsService;
         private readonly IObjectFactory _objectFactory;
 
-        private PlayerVisuals _visuals;
         private PlayerModel _model;
+        private PlayerVisuals _visuals;
         private PlayerMovementController _movementController;
+        private CameraController _cameraController;
         private int _currentLineIndex;
 
+        public int InitOrder => 2;
+        
         public bool IsAlive => _model.IsAlive;
 
         public PlayerController(IConfigsService configsService, IObjectFactory objectFactory)
@@ -25,14 +27,19 @@ namespace CodeBase.Gameplay.Player
             _objectFactory = objectFactory;
         }
 
-        async Task<bool> IInitializable.Initialize()
+        public async Task<bool> Initialize()
         {
             var playerConfig = _configsService.PlayerConfig;
             var visualsRef = playerConfig.PlayerVisualsRef;
+            var cameraRef = _configsService.GameConfig.CameraControllerRef;
 
             _model = new PlayerModel(playerConfig.Hp);
 
-            _visuals = await _objectFactory.CreateComponentGameObject(this, visualsRef);
+            _visuals = await _objectFactory.Create<PlayerVisuals>(this, visualsRef);
+            _movementController = new PlayerMovementController(_configsService, _visuals);
+
+            _cameraController = await _objectFactory.Create<CameraController>(this, cameraRef);
+            _cameraController.SetFollowTarget(_visuals.transform);
 
             _currentLineIndex = _configsService.LevelConfig.BlockSize.x / 2;
 
@@ -51,11 +58,6 @@ namespace CodeBase.Gameplay.Player
 
         public void TryStrafe(StrafeDirection direction)
         {
-            // if (!CanStrafe(direction, out var targetLineIndex))
-            // {
-            //     return;
-            // }
-
             var targetLineIndex = direction switch
             {
                 StrafeDirection.Left => _currentLineIndex - 1,
@@ -74,7 +76,7 @@ namespace CodeBase.Gameplay.Player
             var sizeX = config.BlockSize.x;
             var middleIndexX = sizeX / 2;
             var offsetX = config.ObstacleOffsetX;
-            var targetPositionX = targetLineIndex - middleIndexX * offsetX;
+            var targetPositionX = (targetLineIndex - middleIndexX) * offsetX;
 
             _movementController.Strafe(targetPositionX);
 
@@ -85,19 +87,5 @@ namespace CodeBase.Gameplay.Player
         {
             //
         }
-
-        // private bool CanStrafe(StrafeDirection direction, out int targetLineIndex)
-        // {
-        //     targetLineIndex = direction switch
-        //     {
-        //         StrafeDirection.Left => _currentLineIndex - 1,
-        //         StrafeDirection.Right => _currentLineIndex + 1,
-        //         _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
-        //     };
-        //
-        //     return !_movementController.IsStrafing &&
-        //            targetLineIndex > 0 &&
-        //            targetLineIndex < _configsService.LevelConfig.BlockSize.x;
-        // }
     }
 }

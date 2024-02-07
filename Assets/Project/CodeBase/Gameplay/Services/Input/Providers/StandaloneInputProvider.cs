@@ -2,16 +2,26 @@
 using CodeBase.Gameplay.UI;
 using UnityEngine;
 
-namespace CodeBase.Gameplay.Services.Input
+namespace CodeBase.Gameplay.Services.Input.Providers
 {
-    public sealed class StandaloneInputService : MonoBehaviour, IInputService
+    public sealed class StandaloneInputProvider : MonoBehaviour, IInputProvider
     {
-        public event Action OnJump;
-        public event Action<StrafeDirection> OnStrafe;
-        
         [SerializeField] private KeyCode _strafeLeftKey;
         [SerializeField] private KeyCode _strafeRightKey;
         [SerializeField] private KeyCode _jumpKey;
+
+        public event Action OnJump;
+        public event Action<StrafeDirection> OnStrafe;
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
+
+        public void SetActive(bool active)
+        {
+            enabled = active;
+        }
 
         private void Update()
         {
@@ -19,7 +29,7 @@ namespace CodeBase.Gameplay.Services.Input
             {
                 OnStrafe?.Invoke(StrafeDirection.Left);
             }
-            
+
             if (UnityEngine.Input.GetKeyDown(_strafeRightKey))
             {
                 OnStrafe?.Invoke(StrafeDirection.Right);
