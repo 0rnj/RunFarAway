@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace CodeBase.Gameplay.Services.Input.Providers
 {
-    public sealed class MobileInputProvider : UIView, IInputProvider, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
+    public sealed class MobileInputProvider : UIView, IInputProvider, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
     {
         public event Action OnJump;
         public event Action<StrafeDirection> OnStrafe;
@@ -18,7 +18,6 @@ namespace CodeBase.Gameplay.Services.Input.Providers
         private bool _isDragging;
         private Vector2 _pointerStartPosition;
 
-        // TODO: call on scene change
         public void SetActive(bool active)
         {
             _image.enabled = active;
@@ -30,6 +29,11 @@ namespace CodeBase.Gameplay.Services.Input.Providers
             _pointerStartPosition = eventData.position;
         }
 
+        void IDragHandler.OnDrag(PointerEventData eventData)
+        {
+            //
+        }
+
         void IEndDragHandler.OnEndDrag(PointerEventData eventData)
         {
             _isDragging = false;
@@ -37,7 +41,7 @@ namespace CodeBase.Gameplay.Services.Input.Providers
             var pointerEndPosition = eventData.position;
             var delta = pointerEndPosition.x - _pointerStartPosition.x;
 
-            if (delta < _swipeThreshold)
+            if (Mathf.Abs(delta) < _swipeThreshold)
             {
                 return;
             }
