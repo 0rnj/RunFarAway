@@ -1,6 +1,6 @@
-﻿using CodeBase.Gameplay.UI;
+﻿using CodeBase.Gameplay.Enums;
 
-namespace CodeBase.Gameplay.Player
+namespace CodeBase.Gameplay.Controllers
 {
     public interface IPlayerController
     {

@@ -2,16 +2,14 @@
 using System.Threading.Tasks;
 using CodeBase.Core.Factories;
 using CodeBase.Core.Services;
-using CodeBase.Gameplay.Level;
-using CodeBase.Gameplay.Player;
+using CodeBase.Gameplay.Enums;
 using CodeBase.Gameplay.Services.Configs;
 using CodeBase.Gameplay.Services.Input;
 using CodeBase.Gameplay.StaticData;
-using CodeBase.Gameplay.UI;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace CodeBase.Gameplay
+namespace CodeBase.Gameplay.Controllers
 {
     public sealed class GameController : IGameController, IInitializableAsync, ITickable, IDisposable
     {

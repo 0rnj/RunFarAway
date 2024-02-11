@@ -5,6 +5,7 @@ using System.Reflection;
 using CodeBase.Core.DI;
 using CodeBase.Core.Factories;
 using CodeBase.Core.Services;
+using CodeBase.Gameplay.Controllers;
 
 namespace CodeBase.Gameplay.DI
 {

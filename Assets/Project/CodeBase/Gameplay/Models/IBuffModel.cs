@@ -1,4 +1,4 @@
-namespace CodeBase.Gameplay
+namespace CodeBase.Gameplay.Models
 {
     public interface IBuffModel
     {

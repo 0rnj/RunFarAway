@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using CodeBase.Gameplay.StaticData;
 
-namespace CodeBase.Gameplay.Level
+namespace CodeBase.Gameplay.Controllers
 {
     public interface ILevelController : IController
     {

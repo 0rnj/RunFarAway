@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CodeBase.Gameplay
+namespace CodeBase.Gameplay.Controllers
 {
     public sealed class CameraController : MonoBehaviour
     {

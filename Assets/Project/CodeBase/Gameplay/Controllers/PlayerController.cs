@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CodeBase.Core.Factories;
+using CodeBase.Gameplay.Enums;
+using CodeBase.Gameplay.Models;
+using CodeBase.Gameplay.Scene.Player;
 using CodeBase.Gameplay.Services.Configs;
 using CodeBase.Gameplay.StaticData;
-using CodeBase.Gameplay.UI;
 
-namespace CodeBase.Gameplay.Player
+namespace CodeBase.Gameplay.Controllers
 {
     public sealed class PlayerController : IPlayerController
     {

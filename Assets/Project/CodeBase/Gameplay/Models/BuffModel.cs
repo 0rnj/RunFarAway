@@ -1,6 +1,6 @@
-﻿using CodeBase.Gameplay.StaticData;
+﻿using CodeBase.Gameplay.Enums;
 
-namespace CodeBase.Gameplay
+namespace CodeBase.Gameplay.Models
 {
     public class BuffModel : IBuffModel
     {

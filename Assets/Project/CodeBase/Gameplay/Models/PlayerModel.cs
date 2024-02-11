@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CodeBase.Gameplay.Enums;
 using CodeBase.Gameplay.StaticData;
 
-namespace CodeBase.Gameplay
+namespace CodeBase.Gameplay.Models
 {
     public sealed class PlayerModel : IPlayerModel
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using CodeBase.Gameplay.Enums;
 using UnityEngine.AddressableAssets;
 
 namespace CodeBase.Gameplay.StaticData

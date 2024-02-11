@@ -1,4 +1,4 @@
-﻿namespace CodeBase.Gameplay.StaticData
+﻿namespace CodeBase.Gameplay.Enums
 {
     public enum BuffType
     {

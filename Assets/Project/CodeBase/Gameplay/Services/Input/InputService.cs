@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using CodeBase.Core.Factories;
 using CodeBase.Core.Services;
+using CodeBase.Gameplay.Enums;
 using CodeBase.Gameplay.Services.Configs;
 using CodeBase.Gameplay.Services.Input.Providers;
 using CodeBase.Gameplay.Services.UI;

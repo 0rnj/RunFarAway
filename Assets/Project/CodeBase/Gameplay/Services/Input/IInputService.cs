@@ -1,5 +1,6 @@
 ﻿using System;
 using CodeBase.Core.Services;
+using CodeBase.Gameplay.Enums;
 using CodeBase.Gameplay.UI;
 
 namespace CodeBase.Gameplay.Services.Input

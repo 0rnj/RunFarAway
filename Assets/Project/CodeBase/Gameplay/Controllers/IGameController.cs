@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace CodeBase.Gameplay
+namespace CodeBase.Gameplay.Controllers
 {
     public interface IGameController : IController
     {

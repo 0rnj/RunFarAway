@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CodeBase.Gameplay.Player
+namespace CodeBase.Gameplay.Scene.Player
 {
     public sealed class PlayerVisuals : MonoBehaviour
     {

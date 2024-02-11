@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace CodeBase.Gameplay.Common
+namespace CodeBase.Gameplay.Scene.Level
 {
     [RequireComponent(typeof(Collider))]
     public sealed class CollisionEventsProvider : MonoBehaviour

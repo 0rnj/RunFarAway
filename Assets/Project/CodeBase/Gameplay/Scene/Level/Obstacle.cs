@@ -1,19 +1,13 @@
 ﻿using System;
-using CodeBase.Gameplay.Common;
 using UnityEngine;
 
-namespace CodeBase.Gameplay.Level
+namespace CodeBase.Gameplay.Scene.Level
 {
     public class Obstacle : MonoBehaviour
     {
         public event Action OnCollide;
 
         [SerializeField] private CollisionEventsProvider _collisionEventsProvider;
-
-        public void Setup(float sizeZ)
-        {
-            transform.localScale = Vector3.one + Vector3.forward * sizeZ;
-        }
 
         private void OnEnable()
         {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CodeBase.Core.Factories;
+using CodeBase.Gameplay.Enums;
+using CodeBase.Gameplay.Scene.Level;
 using CodeBase.Gameplay.Services.Configs;
 using CodeBase.Gameplay.StaticData;
 using UnityEngine;
@@ -10,7 +12,7 @@ using UnityEngine.Pool;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
-namespace CodeBase.Gameplay.Level
+namespace CodeBase.Gameplay.Controllers
 {
     public sealed class LevelController : ILevelController, IDisposable
     {

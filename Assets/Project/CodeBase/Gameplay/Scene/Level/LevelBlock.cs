@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using CodeBase.Gameplay.Common;
 using CodeBase.Gameplay.StaticData;
 using UnityEngine;
 
-namespace CodeBase.Gameplay.Level
+namespace CodeBase.Gameplay.Scene.Level
 {
     public sealed class LevelBlock : MonoBehaviour
     {
@@ -25,7 +24,6 @@ namespace CodeBase.Gameplay.Level
             _scaledContent.localScale = Vector3.one + Vector3.forward * config.BlockSize.y * config.ObstaclePlacingStepZ;
         }
         
-        // TODO: fill & release
         public void AddObstacle(Obstacle obstacle, int x, int z)
         {
             var obstacleTransform = obstacle.transform;

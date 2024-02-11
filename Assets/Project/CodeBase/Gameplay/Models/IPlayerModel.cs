@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CodeBase.Gameplay
+namespace CodeBase.Gameplay.Models
 {
     public interface IPlayerModel
     {

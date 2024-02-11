@@ -1,9 +1,8 @@
 ﻿using System;
-using CodeBase.Gameplay.Common;
 using CodeBase.Gameplay.StaticData;
 using UnityEngine;
 
-namespace CodeBase.Gameplay.Level
+namespace CodeBase.Gameplay.Scene.Level
 {
     public sealed class CollectableBuff : MonoBehaviour
     {

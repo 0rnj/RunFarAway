@@ -1,8 +1,10 @@
+using CodeBase.Gameplay.Models;
+using CodeBase.Gameplay.Scene.Player;
 using CodeBase.Gameplay.Services.Configs;
 using DG.Tweening;
 using UnityEngine;
 
-namespace CodeBase.Gameplay.Player
+namespace CodeBase.Gameplay.Controllers
 {
     public sealed class PlayerMovementController
     {
