@@ -7,6 +7,7 @@ namespace CodeBase.Gameplay.Player
     public sealed class PlayerMovementController
     {
         private readonly IConfigsService _configsService;
+        private readonly IPlayerModel _playerModel;
         private readonly PlayerVisuals _playerVisuals;
 
         private float _timePassed;
@@ -15,11 +16,18 @@ namespace CodeBase.Gameplay.Player
         private float _endStrafePositionX;
         private float _endStrafeTime;
 
-        public bool IsStrafing { get; private set; }
+        private bool _isFlying;
+        private Sequence _flyLandSequence;
 
-        public PlayerMovementController(IConfigsService configsService, PlayerVisuals playerVisuals)
+        private bool _isStrafing;
+
+        public PlayerMovementController(
+            IConfigsService configsService,
+            IPlayerModel playerModel,
+            PlayerVisuals playerVisuals)
         {
             _configsService = configsService;
+            _playerModel = playerModel;
             _playerVisuals = playerVisuals;
             _timePassed = Time.time;
         }
@@ -29,33 +37,37 @@ namespace CodeBase.Gameplay.Player
             var config = _configsService.PlayerConfig;
             var startingMoveSpeed = config.StartingMoveSpeed;
             var addedSpeed = (int)(_timePassed / config.MoveSpeedGainInterval) * config.MoveSpeedGain;
-            var speedFactor = IsStrafing ? config.SpeedFactorWhileStrafing : 1f;
-            var moveSpeed = (startingMoveSpeed + addedSpeed) * speedFactor;
+            var speedMultiplier = 1f +
+                                  _playerModel.MoveSpeedMultiplier +
+                                  (_isStrafing ? config.SpeedMultiplierWhileStrafing : 0f);
+            var moveSpeed = (startingMoveSpeed + addedSpeed) * speedMultiplier;
+            moveSpeed = Mathf.Max(moveSpeed, config.MinMoveSpeed);
 
             var visualsTransform = _playerVisuals.transform;
             var pos = visualsTransform.position;
             var x = GetPositionX();
             var y = pos.y;
             var z = pos.z + moveSpeed * deltaTime;
-            
+
             visualsTransform.position = new Vector3(x, y, z);
 
             _timePassed += deltaTime;
 
-            if (IsStrafing && _timePassed >= _endStrafeTime)
+            if (_isStrafing && _timePassed >= _endStrafeTime)
             {
-                IsStrafing = false;
+                _isStrafing = false;
+            }
+
+            var isFlying = _playerModel.IsFlying;
+            if (isFlying != _isFlying)
+            {
+                SetFlying(isFlying);
             }
         }
 
         public void Strafe(float targetPositionX)
         {
-            if (IsStrafing)
-            {
-                return;
-            }
-
-            IsStrafing = true;
+            _isStrafing = true;
             _startStrafePositionX = _playerVisuals.transform.position.x;
             _endStrafePositionX = targetPositionX;
             _startStrafeTime = Time.time;
@@ -70,8 +82,21 @@ namespace CodeBase.Gameplay.Player
                 _endStrafePositionX,
                 strafeTimeNormalized,
                 _configsService.PlayerConfig.StrafeEase);
-            
+
             return positionX;
+        }
+
+        private void SetFlying(bool isFlying)
+        {
+            _flyLandSequence?.Kill();
+
+            _isFlying = isFlying;
+
+            var target = isFlying ? _configsService.PlayerConfig.FlightHeight : 0f;
+
+            _flyLandSequence = DOTween.Sequence()
+                .Append(_playerVisuals.transform.DOLocalMoveY(target, 0.5f))
+                .Play();
         }
     }
 }

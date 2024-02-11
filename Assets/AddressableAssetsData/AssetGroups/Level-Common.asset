@@ -37,6 +37,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - LocalAsset
+  - m_GUID: 6b82078799e590b458b5dd872289bd63
+    m_Address: SpeedUpBuff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LocalAsset
+  - m_GUID: f3057d9ab3154204d90828424e709a99
+    m_Address: SlowBuff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LocalAsset
+  - m_GUID: 731d79884ca22074c8b6e8e036ac3492
+    m_Address: FlightBuff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LocalAsset
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1961bbffd0203bd4fbc872204ddbe89c, type: 2}
   m_SchemaSet:

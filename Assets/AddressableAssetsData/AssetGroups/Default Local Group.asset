@@ -42,6 +42,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - LocalAsset
+  - m_GUID: d4fd907295da94b4091638c25371a1f1
+    m_Address: BuffsConfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LocalAsset
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1961bbffd0203bd4fbc872204ddbe89c, type: 2}
   m_SchemaSet:

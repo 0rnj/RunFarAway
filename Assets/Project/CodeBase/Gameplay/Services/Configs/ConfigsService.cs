@@ -12,6 +12,7 @@ namespace CodeBase.Gameplay.Services.Configs
         public GameConfig GameConfig { get; private set; }
         public PlayerConfig PlayerConfig { get; private set; }
         public LevelConfig LevelConfig { get; private set; }
+        public BuffsConfig BuffsConfig { get; private set; }
 
         public int InitOrder => 1;
 
@@ -25,6 +26,7 @@ namespace CodeBase.Gameplay.Services.Configs
             GameConfig = await TryLoadConfig<GameConfig>();
             LevelConfig = await TryLoadConfig<LevelConfig>();
             PlayerConfig = await TryLoadConfig<PlayerConfig>();
+            BuffsConfig = await TryLoadConfig<BuffsConfig>();
             
             return LevelConfig != null && PlayerConfig != null;
         }

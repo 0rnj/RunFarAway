@@ -6,6 +6,7 @@ using CodeBase.Gameplay.Level;
 using CodeBase.Gameplay.Player;
 using CodeBase.Gameplay.Services.Configs;
 using CodeBase.Gameplay.Services.Input;
+using CodeBase.Gameplay.StaticData;
 using CodeBase.Gameplay.UI;
 using UnityEngine;
 using VContainer.Unity;
@@ -41,6 +42,7 @@ namespace CodeBase.Gameplay
         Task<bool> IInitializableAsync.Initialize()
         {
             _levelController.OnObstacleHit += HandleObstacleHit;
+            _levelController.OnBuffCollided += HandleBuffCollided;
             _inputService.OnStrafe += HandleStrafeRequested;
             _inputService.OnJump += HandleJumpRequested;
 
@@ -87,6 +89,11 @@ namespace CodeBase.Gameplay
             _gameActive = false;
 
             OnPlayerDied?.Invoke();
+        }
+
+        private void HandleBuffCollided(BuffConfig buffConfig)
+        {
+            _playerController.AddBuff(buffConfig);
         }
 
         private void HandleStrafeRequested(StrafeDirection direction)

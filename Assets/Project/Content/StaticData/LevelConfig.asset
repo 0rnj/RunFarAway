@@ -16,9 +16,8 @@ MonoBehaviour:
   <StartingBlocksCount>k__BackingField: 4
   <BlockSize>k__BackingField: {x: 3, y: 3}
   <ObstacleOffsetX>k__BackingField: 2
-  <ObstaclePlacingStepZ>k__BackingField: 4
-  <SpaceForManeuverZ>k__BackingField: 4
-  <BlockObstacleSizeZ>k__BackingField: {x: 1, y: 3}
+  <ObstaclePlacingStepZ>k__BackingField: 6
+  <NoObstacleChance>k__BackingField: 0.5
   <ObstacleRef>k__BackingField:
     m_AssetGUID: e20bbd8fb08f9b94e99e2173bfb1694d
     m_SubObjectName: 

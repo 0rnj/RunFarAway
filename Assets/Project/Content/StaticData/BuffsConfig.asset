@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f0526b59604550b92cbf3e5490f6a4, type: 3}
+  m_Name: BuffsConfig
+  m_EditorClassIdentifier: 
+  <SlowPower>k__BackingField: -0.25
+  <SpeedUpPower>k__BackingField: 0.5
+  _buffConfigs:
+  - BuffType: 0
+    Duration: 0
+    Weight: 10
+    VisualsRef:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - BuffType: 1
+    Duration: 10
+    Weight: 3
+    VisualsRef:
+      m_AssetGUID: f3057d9ab3154204d90828424e709a99
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - BuffType: 2
+    Duration: 10
+    Weight: 2
+    VisualsRef:
+      m_AssetGUID: 6b82078799e590b458b5dd872289bd63
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+  - BuffType: 3
+    Duration: 10
+    Weight: 1
+    VisualsRef:
+      m_AssetGUID: 731d79884ca22074c8b6e8e036ac3492
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0

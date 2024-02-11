@@ -1,15 +1,22 @@
-﻿namespace CodeBase.Gameplay
+﻿using CodeBase.Gameplay.StaticData;
+
+namespace CodeBase.Gameplay
 {
     public class BuffModel : IBuffModel
     {
-        private float _duration;
+        public BuffType BuffType { get; }
+        public float Duration { get; private set; }
+        public bool IsExpired => Duration <= 0f;
 
-        public float Duration => _duration;
-        public bool IsExpired => _duration <= 0f;
-        
+        public BuffModel(BuffType buffType, float duration)
+        {
+            BuffType = buffType;
+            Duration = duration;
+        }
+
         public void Tick(float deltaTime)
         {
-            _duration = Duration - deltaTime;            
+            Duration -= deltaTime;
         }
     }
 }

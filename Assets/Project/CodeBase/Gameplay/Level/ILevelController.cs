@@ -1,13 +1,14 @@
 using System;
 using System.Threading.Tasks;
+using CodeBase.Gameplay.StaticData;
 
 namespace CodeBase.Gameplay.Level
 {
     public interface ILevelController : IController
     {
-        Task CreateBlock();
-        Task CreateEmptyBlock();
         event Action OnObstacleHit;
+        event Action<BuffConfig> OnBuffCollided;
+
         Task CreateLevel();
     }
 }

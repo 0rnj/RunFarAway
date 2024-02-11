@@ -8,5 +8,6 @@ namespace CodeBase.Gameplay.Services.Configs
         GameConfig GameConfig { get; }
         PlayerConfig PlayerConfig { get; }
         LevelConfig LevelConfig { get; }
+        BuffsConfig BuffsConfig { get; }
     }
 }

@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Hp>k__BackingField: 1
   <StartingMoveSpeed>k__BackingField: 3
-  <MoveSpeedGain>k__BackingField: 0.1
+  <MoveSpeedGain>k__BackingField: 0.5
   <MoveSpeedGainInterval>k__BackingField: 5
+  <MinMoveSpeed>k__BackingField: 0
   <StrafeDuration>k__BackingField: 0.25
-  <SpeedFactorWhileStrafing>k__BackingField: 0.8
+  <SpeedMultiplierWhileStrafing>k__BackingField: 0
   <StrafeEase>k__BackingField: 9
+  <FlightHeight>k__BackingField: 1.25
   <PlayerVisualsRef>k__BackingField:
     m_AssetGUID: 2416fb9ade1e9ee448535dd00b5188bb
     m_SubObjectName: 
