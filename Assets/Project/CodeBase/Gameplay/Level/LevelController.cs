@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodeBase.Core.Factories;
 using CodeBase.Gameplay.Services.Configs;
 using UnityEngine;
+using UnityEngine.Pool;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace CodeBase.Gameplay.Level
@@ -11,6 +14,10 @@ namespace CodeBase.Gameplay.Level
     {
         private readonly IConfigsService _configsService;
         private readonly IObjectFactory _objectFactory;
+        private readonly List<LevelBlock> _levelBlocks = new();
+
+        private int _currentBlockIndex;
+        private int _previousCorridorIndexX = -1;
 
         public event Action OnObstacleHit;
 
@@ -25,24 +32,42 @@ namespace CodeBase.Gameplay.Level
             OnObstacleHit = null;
         }
 
-        public async Task CreateEmptyBlock(int blockIndex)
+        public async Task CreateLevel()
         {
-            await AddBlock(blockIndex);
+            _currentBlockIndex = -2;
+
+            var emptyCount = _configsService.LevelConfig.StartingEmptyBlocksCount;
+
+            for (var i = 0; i < emptyCount; i++)
+            {
+                await CreateEmptyBlock();
+            }
+
+            var blocksCount = _configsService.LevelConfig.StartingBlocksCount;
+
+            for (var i = 0; i < blocksCount; i++)
+            {
+                await CreateBlock();
+                // await CreateEmptyBlock();
+            }
         }
 
-        public async Task CreateBlock(int blockIndex)
+        public async Task CreateEmptyBlock()
         {
-            // var spacing = _config.SpaceForManeuverZ;
-            // var obstaclesX = ArrayPool<Obstacle>.Shared.Rent(blockSize.x);
-            // var obstaclesY = ArrayPool<Obstacle[]>.Shared.Rent(blockSize.y);
+            await AddBlock(isEmpty: true);
+        }
 
+        public async Task CreateBlock()
+        {
             var blockSize = _configsService.LevelConfig.BlockSize;
-            var corridorIndexX = Random.Range(0, blockSize.x);
-            var block = await AddBlock(blockIndex);
 
-            for (var x = 0; x < blockSize.x; x++)
+            var block = await AddBlock(isEmpty: false);
+
+            for (var z = 0; z < blockSize.y; z++)
             {
-                for (var z = 0; z < blockSize.y; z++)
+                var corridorIndexX = GetCorridorIndexX(blockSize);
+
+                for (var x = 0; x < blockSize.x; x++)
                 {
                     if (x != corridorIndexX)
                     {
@@ -52,15 +77,46 @@ namespace CodeBase.Gameplay.Level
             }
         }
 
-        private async Task<LevelBlock> AddBlock(int blockIndex)
+        private int GetCorridorIndexX(Vector2Int blockSize)
         {
-            var blockSize = _configsService.LevelConfig.BlockSize;
-            var blockRef = _configsService.LevelConfig.BlockRef;
+            var corridorIndices = ListPool<int>.Get();
+
+            for (var i = 0; i < blockSize.x; i++)
+            {
+                if (i != _previousCorridorIndexX)
+                {
+                    corridorIndices.Add(i);
+                }
+            }
+
+            var rnd = Random.Range(0, corridorIndices.Count);
+            var corridorIndexX = corridorIndices[rnd];
+            
+            corridorIndices.Clear();
+            ListPool<int>.Release(corridorIndices);
+            
+            _previousCorridorIndexX = corridorIndexX;
+
+            // Debug.LogWarning($"Corridor index: {corridorIndexX}");
+            return corridorIndexX;
+        }
+
+        private async Task<LevelBlock> AddBlock(bool isEmpty)
+        {
+            var levelConfig = _configsService.LevelConfig;
+            var blockSize = levelConfig.BlockSize;
+            var blockRef = levelConfig.BlockRef;
             var block = await _objectFactory.Create<LevelBlock>(this, blockRef);
-            
-            block.Initialize(_configsService.LevelConfig);
-            block.transform.localPosition = new Vector3(0f, 0f, blockSize.y * blockIndex);
-            
+
+            var z = blockSize.y * _currentBlockIndex * levelConfig.ObstaclePlacingStepZ;
+            block.Initialize(levelConfig, isEmpty);
+            block.transform.localPosition = new Vector3(0f, 0f, z);
+
+            block.OnEnter += HandleBlockEntered;
+
+            _levelBlocks.Add(block);
+            _currentBlockIndex++;
+
             return block;
         }
 
@@ -68,10 +124,29 @@ namespace CodeBase.Gameplay.Level
         {
             var obstacleRef = _configsService.LevelConfig.ObstacleRef;
             var obstacle = await _objectFactory.Create<Obstacle>(this, obstacleRef);
-            
+
             block.AddObstacle(obstacle, x, z);
 
             obstacle.OnCollide += HandleObstacleCollided;
+        }
+
+        private async void HandleBlockEntered(LevelBlock levelBlock)
+        {
+            var removedBlock = _levelBlocks[0];
+            var blockIsEmpty = removedBlock.IsEmpty;
+            _levelBlocks.RemoveAt(0);
+
+            removedBlock.OnEnter -= HandleBlockEntered;
+
+            Object.Destroy(removedBlock.gameObject);
+
+            if (blockIsEmpty)
+            {
+                return;
+            }
+
+            await CreateBlock();
+            // await CreateEmptyBlock();
         }
 
         private void HandleObstacleCollided()

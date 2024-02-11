@@ -19,7 +19,6 @@ namespace CodeBase.Gameplay
         private readonly IObjectFactory _objectFactory;
         private readonly IInputService _inputService;
 
-        private int _currentBlockIndex;
         private bool _gameActive;
         private PlayerController _playerController;
 
@@ -55,17 +54,10 @@ namespace CodeBase.Gameplay
 
         async Task IGameController.StartGame()
         {
-            var emptyCount = _configsService.LevelConfig.StartingEmptyBlocksCount;
-
-            _currentBlockIndex = -1;
-            
-            for (var i = 0; i < emptyCount; i++)
-            {
-                await _levelController.CreateEmptyBlock(_currentBlockIndex++);
-            }
+            await _levelController.CreateLevel();
 
             _playerController = new PlayerController(_configsService, _objectFactory);
-            
+
             await _playerController.Initialize();
 
             _gameActive = true;
@@ -93,7 +85,7 @@ namespace CodeBase.Gameplay
             }
 
             _gameActive = false;
-            
+
             OnPlayerDied?.Invoke();
         }
 

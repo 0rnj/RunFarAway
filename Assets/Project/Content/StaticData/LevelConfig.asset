@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b51b41645304528ae51e3f69bc526a1, type: 3}
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
-  <StartingEmptyBlocksCount>k__BackingField: 2
+  <StartingEmptyBlocksCount>k__BackingField: 3
+  <StartingBlocksCount>k__BackingField: 4
   <BlockSize>k__BackingField: {x: 3, y: 3}
   <ObstacleOffsetX>k__BackingField: 2
-  <ObstaclePlacingStepZ>k__BackingField: 2
+  <ObstaclePlacingStepZ>k__BackingField: 4
   <SpaceForManeuverZ>k__BackingField: 4
   <BlockObstacleSizeZ>k__BackingField: {x: 1, y: 3}
   <ObstacleRef>k__BackingField:

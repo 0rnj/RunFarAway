@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b79aa2a89b64b2683997f4b445189ac, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  <Hp>k__BackingField: 3
-  <StartingMoveSpeed>k__BackingField: 1
+  <Hp>k__BackingField: 1
+  <StartingMoveSpeed>k__BackingField: 3
   <MoveSpeedGain>k__BackingField: 0.1
   <MoveSpeedGainInterval>k__BackingField: 5
   <StrafeDuration>k__BackingField: 0.25
+  <SpeedFactorWhileStrafing>k__BackingField: 0.8
   <StrafeEase>k__BackingField: 9
   <PlayerVisualsRef>k__BackingField:
     m_AssetGUID: 2416fb9ade1e9ee448535dd00b5188bb

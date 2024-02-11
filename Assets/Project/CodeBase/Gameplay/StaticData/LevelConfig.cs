@@ -1,5 +1,4 @@
-﻿using CodeBase.Gameplay.Level;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace CodeBase.Gameplay.StaticData
@@ -8,11 +7,11 @@ namespace CodeBase.Gameplay.StaticData
     public sealed class LevelConfig : ScriptableObject
     {
         [field: SerializeField] public int StartingEmptyBlocksCount { get; private set; }
+        [field: SerializeField] public int StartingBlocksCount { get; private set; }
         [field: SerializeField] public Vector2Int BlockSize { get; private set; }
+        [field: SerializeField] public int EmptyBlockSize { get; private set; }
         [field: SerializeField] public float ObstacleOffsetX { get; private set; }
         [field: SerializeField] public float ObstaclePlacingStepZ { get; private set; }
-        [field: SerializeField] public float SpaceForManeuverZ { get; private set; }
-        [field: SerializeField] public Vector2Int BlockObstacleSizeZ { get; private set; }
         [field: SerializeField] public AssetReference ObstacleRef { get; private set; }
         [field: SerializeField] public AssetReference BlockRef { get; private set; }
         
