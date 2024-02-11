@@ -8,5 +8,6 @@ namespace CodeBase.Gameplay
         event Action OnPlayerDied;
         
         Task StartGame();
+        void EndGame();
     }
 }

@@ -10,7 +10,7 @@ namespace CodeBase.Gameplay.StateMachine.States
 
         protected override void Proceed()
         {
-            StateMachine.Enter<PlayState>();
+            StateMachine.Enter<StartGameState>();
         }
     }
 }

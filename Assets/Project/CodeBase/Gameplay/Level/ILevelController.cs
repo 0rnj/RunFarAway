@@ -10,5 +10,6 @@ namespace CodeBase.Gameplay.Level
         event Action<BuffConfig> OnBuffCollided;
 
         Task CreateLevel();
+        void DestroyLevel();
     }
 }

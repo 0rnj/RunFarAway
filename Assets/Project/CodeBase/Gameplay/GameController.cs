@@ -65,6 +65,11 @@ namespace CodeBase.Gameplay
             _gameActive = true;
         }
 
+        void IGameController.EndGame()
+        {
+            _levelController.DestroyLevel();
+        }
+
         void ITickable.Tick()
         {
             if (!_gameActive)

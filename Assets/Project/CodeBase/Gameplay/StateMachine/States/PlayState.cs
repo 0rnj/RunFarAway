@@ -22,8 +22,6 @@ namespace CodeBase.Gameplay.StateMachine.States
             _gameController.OnPlayerDied += HandlePlayerDied;
 
             _gameView = await _uiService.Show<GameView>();
-
-            await _gameController.StartGame();
         }
 
         public override void Exit()

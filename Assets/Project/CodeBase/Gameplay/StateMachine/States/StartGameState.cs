@@ -4,8 +4,17 @@ namespace CodeBase.Gameplay.StateMachine.States
 {
     public sealed class StartGameState : StateBase
     {
-        public override void Enter()
+        private readonly IGameController _gameController;
+
+        public StartGameState(IGameController gameController)
         {
+            _gameController = gameController;
+        }
+
+        public override async void Enter()
+        {
+            await _gameController.StartGame();
+
             StateMachine.Enter<PlayState>();
         }
 

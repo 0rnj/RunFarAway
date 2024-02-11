@@ -22,7 +22,7 @@ namespace CodeBase.Gameplay.Level
         private int _previousCorridorIndexX = -1;
 
         public event Action OnObstacleHit;
-        public event Action<BuffConfig> OnBuffCollided; 
+        public event Action<BuffConfig> OnBuffCollided;
 
         public LevelController(IConfigsService configsService, IObjectFactory objectFactory)
         {
@@ -52,6 +52,20 @@ namespace CodeBase.Gameplay.Level
             {
                 await CreateBlock();
             }
+        }
+
+        public void DestroyLevel()
+        {
+            for (var i = 0; i < _levelBlocks.Count; i++)
+            {
+                var levelBlock = _levelBlocks[i];
+
+                levelBlock.OnEnter -= HandleBlockEntered;
+
+                Object.Destroy(levelBlock.gameObject);
+            }
+
+            _levelBlocks.Clear();
         }
 
         public async Task CreateEmptyBlock()
@@ -103,10 +117,10 @@ namespace CodeBase.Gameplay.Level
 
             var rnd = Random.Range(0, corridorIndices.Count);
             var corridorIndexX = corridorIndices[rnd];
-            
+
             corridorIndices.Clear();
             ListPool<int>.Release(corridorIndices);
-            
+
             _previousCorridorIndexX = corridorIndexX;
 
             return corridorIndexX;
@@ -164,11 +178,11 @@ namespace CodeBase.Gameplay.Level
                 }
 
                 var collectableBuff = await _objectFactory.Create<CollectableBuff>(this, buffConfig.VisualsRef);
-                
+
                 collectableBuff.Initialize(buffConfig);
 
                 collectableBuff.OnBuffCollided += HandleBuffCollected;
-                
+
                 block.AddBuff(collectableBuff, x, z);
                 break;
             }
@@ -200,7 +214,7 @@ namespace CodeBase.Gameplay.Level
         private void HandleBuffCollected(CollectableBuff collectableBuff)
         {
             OnBuffCollided?.Invoke(collectableBuff.Config);
-            
+
             Object.Destroy(collectableBuff.gameObject);
         }
     }

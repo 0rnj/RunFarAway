@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace CodeBase.Gameplay.UI
 {
-    public sealed class MenuView : UIView<MenuView.Params>
+    public sealed class MenuView : UIView
     {
         [SerializeField] private Button _playButton;
         [SerializeField] private CanvasGroup _canvasGroup;
@@ -25,7 +25,7 @@ namespace CodeBase.Gameplay.UI
         {
             _playButton.onClick.AddListener(HandlePlayPressed);
 
-            SetVisible(true, ViewParams.ShowInstantly);
+            SetVisible(true, instantly: true);
         }
 
         protected override void OnDeactivateView()
@@ -69,16 +69,6 @@ namespace CodeBase.Gameplay.UI
         {
             [field: SerializeField] public float ShowHideDuration { get; private set; }
             [field: SerializeField] public Ease ShowHideEase { get; private set; }
-        }
-        
-        public class Params
-        {
-            public readonly bool ShowInstantly;
-
-            public Params(bool showInstantly)
-            {
-                ShowInstantly = showInstantly;
-            }
         }
     }
 }
