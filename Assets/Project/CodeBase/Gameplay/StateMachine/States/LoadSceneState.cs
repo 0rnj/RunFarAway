@@ -27,7 +27,7 @@ namespace CodeBase.Gameplay.StateMachine.States
 
         protected abstract void Proceed();
 
-        private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
+        private void HandleSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
         {
             SceneManager.sceneLoaded -= HandleSceneLoaded;
 
